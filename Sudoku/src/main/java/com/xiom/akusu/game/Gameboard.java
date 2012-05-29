@@ -36,9 +36,11 @@ public class Gameboard {
 	}
 
 	public boolean move(int xMove, int yMove, int value) {
-		if (currentBoard[xMove][yMove] == EMPTY_SPACE) {
+		if (currentBoard[xMove][yMove] == EMPTY_SPACE)
+		{
 
-			if (validateMove(xMove, yMove, value)) {
+			if (validateMove(xMove, yMove, value))
+			{
 				currentBoard[xMove][yMove] = value;
 				spacesInvalid--;
 
@@ -58,9 +60,12 @@ public class Gameboard {
 		int xQuadrant = xMove / 3;
 		int yQuadrant = yMove / 3;
 
-		for (int x = xQuadrant * 3; x < (xQuadrant * 3) + 3; x++) {
-			for (int y = yQuadrant * 3; y < (yQuadrant * 3) + 3; y++) {
-				if (currentBoard[x][y] == value) {
+		for (int x = xQuadrant * 3; x < (xQuadrant * 3) + 3; x++)
+		{
+			for (int y = yQuadrant * 3; y < (yQuadrant * 3) + 3; y++)
+			{
+				if (currentBoard[x][y] == value)
+				{
 					return false;
 				}
 			}
@@ -70,8 +75,10 @@ public class Gameboard {
 	}
 
 	private boolean validateY(int yMove, int value) {
-		for (int x = 0; x < 9; x++) {
-			if (currentBoard[x][yMove] == value) {
+		for (int x = 0; x < 9; x++)
+		{
+			if (currentBoard[x][yMove] == value)
+			{
 				return false;
 			}
 		}
@@ -80,8 +87,10 @@ public class Gameboard {
 	}
 
 	private boolean validateX(int xMove, int value) {
-		for (int y = 0; y < 9; y++) {
-			if (currentBoard[xMove][y] == value) {
+		for (int y = 0; y < 9; y++)
+		{
+			if (currentBoard[xMove][y] == value)
+			{
 				return false;
 			}
 		}
@@ -91,8 +100,19 @@ public class Gameboard {
 
 	public void print() {
 
-		for (int x = 0; x < 9; x++) {
-			for (int y = 0; y < 9; y++) {
+		for (int x = 0; x < 9; x++)
+		{
+			if (x % 3 == 0)
+			{
+				System.out.println("------------");
+			}
+
+			for (int y = 0; y < 9; y++)
+			{
+				if (y % 3 == 0)
+				{
+					System.out.print("|");
+				}
 				System.out.print(currentBoard[x][y]);
 			}
 
